@@ -226,15 +226,3 @@ chmod +x ./scripts/run.sh
 
 </div>
 
-## 5. 效果展示
-
-### 🎥 视频效果演示
-<div align="center" style="margin: 40px 0;">
-
-```html
-<video width="80%" controls poster="./image/1-poster.jpg">
-  <source src="./image/1-HD.mp4" type="video/mp4">
-  <track label="English" kind="subtitles" srclang="en" src="./subtitle/en.vtt" default>
-  <track label="中文" kind="subtitles" srclang="zh" src="./subtitle/zh.vtt">
-  您的浏览器不支持HTML5视频
-</video>
