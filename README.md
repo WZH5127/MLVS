@@ -54,7 +54,7 @@
 
 </div>
 
-### 2.2 核心技术模块代码
+## 2.2 核心技术模块代码
 
 ### 语音识别模块 (Faster-Whisper)
 ```python
@@ -80,3 +80,96 @@ def speech_to_text(audio_path: str, model_size: str = "large-v2"):
     )
     return [(segment.text, segment.start, segment.end) for segment in segments]
 
+### 语音合成模块 (GPT-SoVITS)
+```python
+from gpt_sovits import TTS
+
+def text_to_speech(
+    text: str,
+    ref_audio: str,
+    output_path: str,
+    model_path: str = "pretrained/s2G488k.pth"
+):
+    """
+    音色克隆语音合成
+    :param text: 输入文本
+    :param ref_audio: 参考音频路径（用于克隆音色）
+    :param output_path: 输出音频路径
+    :param model_path: 模型路径
+    """
+    tts = TTS(model_path)
+    tts.generate(
+        text=text,
+        ref_audio=ref_audio,
+        output_path=output_path,
+        language="auto",
+        speed=1.0
+    )
+
+### 唇形同步模块 (改进Wav2Lip)
+```python
+import torch
+from wav2lip_improved import Wav2Lip
+
+def lip_sync(
+    video_path: str,
+    audio_path: str,
+    output_path: str,
+    checkpoint: str = "checkpoints/wav2lip_gan.pth"
+):
+    """
+    高精度唇形同步
+    :param video_path: 输入视频（无声）
+    :param audio_path: 输入音频
+    :param output_path: 输出视频路径
+    :param checkpoint: 模型检查点路径
+    """
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model = Wav2Lip(checkpoint=checkpoint).to(device)
+    
+    model.inference(
+        video_path=video_path,
+        audio_path=audio_path,
+        output_path=output_path,
+        face_det_batch_size=4,
+        pads=[0, 10, 0, 0]  # 改进的唇部区域padding
+    )
+
+### 画质增强模块 (Real-ESRGAN)
+```python
+from basicsr.archs.rrdbnet_arch import RRDBNet
+from realesrgan import RealESRGANer
+
+def enhance_video(
+    input_path: str,
+    output_path: str,
+    model_name: str = "RealESRGAN_x4plus"
+):
+    """
+    视频超分辨率增强
+    :param input_path: 输入视频路径
+    :param output_path: 输出视频路径
+    :param model_name: 模型名称
+    """
+    model = RRDBNet(
+        num_in_ch=3,
+        num_out_ch=3,
+        num_feat=64,
+        num_block=23,
+        num_grow_ch=32
+    )
+    
+    upsampler = RealESRGANer(
+        scale=4,
+        model_path=f"weights/{model_name}.pth",
+        model=model,
+        tile=400,
+        tile_pad=10
+    )
+    
+    upsampler.enhance(
+        input_path,
+        output_path,
+        fps=30,
+        outscale=4
+    )
