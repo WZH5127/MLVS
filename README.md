@@ -13,6 +13,17 @@
 系统采用Faster-Whisper模型进行高精度语音识别，通过机器翻译API完成文本转换，利用GPT-SoVITS技术实现音色保持的语音合成，
 并创新性地结合改进的Wav2Lip算法实现唇形同步，最后通过Real-ESRGAN技术提升输出视频画质。
 该系统有效解决了传统视频翻译中音画不同步、专业术语翻译不准确等问题，实现了从中文到多语言的高质量视频转换，为教育资源的全球化传播提供了完整的技术解决方案。
+```mermaid
+graph TD
+    A[输入中文教学视频] --> B[语音分离]
+    B --> C[Faster-Whisper语音识别]
+    C --> D[DeepL/Google翻译]
+    D --> E[GPT-SoVITS语音合成]
+    E --> F[改进Wav2Lip唇形同步]
+    F --> G[Real-ESRGAN画质增强]
+    G --> H[输出多语言视频]
+```
+
 ## 2.1 核心技术模块展示
 
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin: 30px 0; align-items: start;">
