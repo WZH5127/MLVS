@@ -79,6 +79,7 @@ def speech_to_text(audio_path: str, model_size: str = "large-v2"):
         word_timestamps=True
     )
     return [(segment.text, segment.start, segment.end) for segment in segments]
+```
 
 ### 语音合成模块 (GPT-SoVITS)
 ```python
@@ -105,6 +106,7 @@ def text_to_speech(
         language="auto",
         speed=1.0
     )
+```
 
 ### 唇形同步模块 (改进Wav2Lip)
 ```python
@@ -134,6 +136,7 @@ def lip_sync(
         face_det_batch_size=4,
         pads=[0, 10, 0, 0]  # 改进的唇部区域padding
     )
+```
 
 ### 画质增强模块 (Real-ESRGAN)
 ```python
@@ -173,3 +176,4 @@ def enhance_video(
         fps=30,
         outscale=4
     )
+```
