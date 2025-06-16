@@ -203,23 +203,23 @@ chmod +x ./scripts/run.sh
 ## 4. 运行截图
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin: 30px 0; align-items: start;">
 
-### 语音识别模块
+### 语音翻译和合成模块
 <div style="border: 1px solid #e1e4e8; border-radius: 8px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-  <img src="./image/6.png" alt="Faster-Whisper" style="width: 100%; height: 500px; object-fit: contain; display: block; margin: 0 auto;">
+  <img src="./image/6.png" alt="Faster-Whisper" style="width: 100%; height: 550px; object-fit: contain; display: block; margin: 0 auto;">
   <p style="text-align: center; margin-top: 10px; font-size: 14px; color: #555;">
   </p>
 </div>
 
-### 文本翻译模块
+### 唇形对齐模块
 <div style="border: 1px solid #e1e4e8; border-radius: 8px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-  <img src="./image/7.png" alt="DeepL翻译" style="width: 100%; height: 500px; object-fit: contain; display: block; margin: 0 auto;">
+  <img src="./image/7.png" alt="DeepL翻译" style="width: 70%; height: 500px; object-fit: contain; display: block; margin: 0 auto;">
   <p style="text-align: center; margin-top: 10px; font-size: 14px; color: #555;">
   </p>
 </div>
 
-### 语音合成模块
+### 双语字幕与视频合并模块
 <div style="border: 1px solid #e1e4e8; border-radius: 8px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-  <img src="./image/8.png" alt="GPT-SoVITS" style="width: 100%; height: 500px; object-fit: contain; display: block; margin: 0 auto;">
+  <img src="./image/8.png" alt="GPT-SoVITS" style="width: 70%; height: 500px; object-fit: contain; display: block; margin: 0 auto;">
   <p style="text-align: center; margin-top: 10px; font-size: 14px; color: #555;">
   </p>
 </div>
