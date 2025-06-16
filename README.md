@@ -29,7 +29,7 @@
 
 ### 文本翻译模块
 <div style="border: 1px solid #e1e4e8; border-radius: 8px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-  <img src="./image/2.png" alt="DeepL翻译" style="width: 50%; height: 220px; object-fit: contain; display: block; margin: 0 auto;">
+  <img src="./image/2.png" alt="DeepL翻译" style="width: 50%; height: 150px; object-fit: contain; display: block; margin: 0 auto;">
   <p style="text-align: center; margin-top: 10px; font-size: 14px; color: #555;">
     <b>图2</b>：专业术语准确率提升42%
   </p>
